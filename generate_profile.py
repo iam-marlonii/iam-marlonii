@@ -66,13 +66,13 @@ THEMES = {
         "bg": "#0d1117", "panel": "#161b22", "border": "#30363d",
         "text": "#c9d1d9", "muted": "#8b949e", "key": "#3fb950",
         "accent": "#58a6ff", "warn": "#d29922", "art": "#bc8cff",
-        "prompt": "#3fb950", "dot1": "#ff5f56", "dot2": "#ffbd2e", "dot3": "#27c93f",
+        "prompt": "#3fb950",
     },
     "light": {
         "bg": "#ffffff", "panel": "#f6f8fa", "border": "#d0d7de",
         "text": "#1f2328", "muted": "#59636e", "key": "#1a7f37",
         "accent": "#0969da", "warn": "#9a6700", "art": "#8250df",
-        "prompt": "#1a7f37", "dot1": "#ff5f56", "dot2": "#ffbd2e", "dot3": "#27c93f",
+        "prompt": "#1a7f37",
     },
 }
 
@@ -165,22 +165,27 @@ def render(theme_name, colors, stats, stamp):
     ic = colors["muted"]
     parts.append(
         f'<g fill="none" stroke="{ic}" stroke-width="1.5" stroke-linecap="round">'
-        f'<rect x="14" y="12" width="16" height="16" rx="3"/>'
+        f'<rect x="15" y="13" width="14" height="14" rx="3"/>'
         f'<path d="M22 16v8M18 20h8"/>'
         f'</g>'
     )
-    rx = W - 18
+    # right icons: 14×14 to match left [+] control
+    gx, hx, cx = W - 88, W - 60, W - 32
     parts.append(
-        f'<g fill="none" stroke="{ic}" stroke-width="1.4" stroke-linecap="round">'
+        f'<g fill="{ic}">'
         # 2×2 grid
-        f'<rect x="{rx-70}" y="14" width="5" height="5" rx="0.5"/>'
-        f'<rect x="{rx-63}" y="14" width="5" height="5" rx="0.5"/>'
-        f'<rect x="{rx-70}" y="21" width="5" height="5" rx="0.5"/>'
-        f'<rect x="{rx-63}" y="21" width="5" height="5" rx="0.5"/>'
-        # hamburger
-        f'<path d="M{rx-42} 15h12M{rx-42} 20h12M{rx-42} 25h12"/>'
-        # close (×)
-        f'<path d="M{rx-14} 14l12 12M{rx-2} 14l-12 12"/>'
+        f'<rect x="{gx+1}" y="14" width="5.5" height="5.5" rx="0.5"/>'
+        f'<rect x="{gx+7.5}" y="14" width="5.5" height="5.5" rx="0.5"/>'
+        f'<rect x="{gx+1}" y="20.5" width="5.5" height="5.5" rx="0.5"/>'
+        f'<rect x="{gx+7.5}" y="20.5" width="5.5" height="5.5" rx="0.5"/>'
+        f'</g>'
+    )
+    parts.append(
+        f'<g fill="none" stroke="{ic}" stroke-width="2.25" stroke-linecap="round">'
+        # hamburger — three bars in 14×14
+        f'<path d="M{hx+1} 15.5h12M{hx+1} 20h12M{hx+1} 24.5h12"/>'
+        # close (×) — diagonal arms in 14×14
+        f'<path d="M{cx+2} 15l10 10M{cx+12} 15l-10 10"/>'
         f'</g>'
     )
     parts.append(
@@ -257,7 +262,10 @@ def render(theme_name, colors, stats, stamp):
     parts.append(
         f'<text x="{ART_X}" y="{fy}" class="row" style="animation-delay:{delay+0.1:.2f}s">'
         f'<tspan class="key">➜</tspan>'
-        f'<tspan class="acc" dx="8">~</tspan>'
+        f'<tspan class="acc">{escape(USERNAME)}@fedora</tspan>'
+        f'<tspan class="val">:</tspan>'
+        f'<tspan class="acc">~</tspan>'
+        f'<tspan class="val">$</tspan>'
         f'<tspan class="val" dx="8">{escape(FOOTER_PROMPT)}</tspan>'
         f'<tspan class="cur" dx="8">█</tspan></text>'
     )
