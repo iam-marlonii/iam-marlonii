@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local source photo (regenerate portrait with photo_to_ascii.py)
+photo.jpg
+photo.png
+photo.jpeg
+.venv/
