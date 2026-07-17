@@ -83,7 +83,7 @@ ART_LH = ART_CW * 1.72
 INFO_X, INFO_Y, INFO_LH = 448, 92, 17.5
 VAL_X = INFO_X + 92
 
-FOOTER_PROMPT = "open to solutions engineering / systems roles"
+FOOTER_PROMPT = "echo \"what's behind the commit?\" >> blog.marlonii.com"
 
 
 # ----------------------------------------------------------------------------
@@ -151,7 +151,7 @@ def render(theme_name, colors, stats, stamp):
     .artline {{ opacity:1; animation: fade .3s ease backwards; }}
     </style>""")
 
-    # window chrome
+    # fedora terminal
     parts.append(
         f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="12" '
         f'fill="{colors["bg"]}" stroke="{colors["border"]}" stroke-width="1.5"/>'
@@ -161,11 +161,31 @@ def render(theme_name, colors, stats, stamp):
         f'fill="{colors["panel"]}"/>'
     )
     parts.append(f'<line x1="1" y1="38" x2="{W-1}" y2="38" stroke="{colors["border"]}"/>')
-    for i, c in enumerate(["dot1", "dot2", "dot3"]):
-        parts.append(f'<circle cx="{24 + i*20}" cy="20" r="6" fill="{colors[c]}"/>')
+    # fedora window controls: [+] left · grid / menu / close right
+    ic = colors["muted"]
+    parts.append(
+        f'<g fill="none" stroke="{ic}" stroke-width="1.5" stroke-linecap="round">'
+        f'<rect x="14" y="12" width="16" height="16" rx="3"/>'
+        f'<path d="M22 16v8M18 20h8"/>'
+        f'</g>'
+    )
+    rx = W - 18
+    parts.append(
+        f'<g fill="none" stroke="{ic}" stroke-width="1.4" stroke-linecap="round">'
+        # 2×2 grid
+        f'<rect x="{rx-70}" y="14" width="5" height="5" rx="0.5"/>'
+        f'<rect x="{rx-63}" y="14" width="5" height="5" rx="0.5"/>'
+        f'<rect x="{rx-70}" y="21" width="5" height="5" rx="0.5"/>'
+        f'<rect x="{rx-63}" y="21" width="5" height="5" rx="0.5"/>'
+        # hamburger
+        f'<path d="M{rx-42} 15h12M{rx-42} 20h12M{rx-42} 25h12"/>'
+        # close (×)
+        f'<path d="M{rx-14} 14l12 12M{rx-2} 14l-12 12"/>'
+        f'</g>'
+    )
     parts.append(
         f'<text x="{W/2}" y="24" class="ttl" text-anchor="middle">'
-        f'{escape(USERNAME)} — zsh — 90×26</text>'
+        f'{escape(USERNAME)}@fedora:~</text>'
     )
 
     # command line
@@ -173,7 +193,7 @@ def render(theme_name, colors, stats, stamp):
         f'<text x="{ART_X}" y="66" class="row" style="animation-delay:.05s">'
         f'<tspan class="key">➜</tspan>'
         f'<tspan class="acc" dx="8">~</tspan>'
-        f'<tspan class="val" dx="8">neofetch --profile</tspan></text>'
+        f'<tspan class="val" dx="8">fastfetch --profile</tspan></text>'
     )
 
     # ascii art
