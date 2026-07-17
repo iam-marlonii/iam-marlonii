@@ -100,7 +100,7 @@
 <text x="448" y="427.5" class="key row" style="animation-delay:1.61s">Impact</text>
 <text x="540" y="427.5" class="val row" style="animation-delay:1.61s">PCI migrations · 100K+ payment methods</text>
 <text x="540" y="445.0" class="mut row" style="animation-delay:1.68s">99.3% accuracy · $1.3B+ annual volume</text>
-<text x="448" y="462.5" class="row" style="animation-delay:1.75s"><tspan class="key">⚡</tspan><tspan class="val" dx="8">repos -   ·   stars -   ·   followers -</tspan></text>
+<text x="448" y="462.5" class="row" style="animation-delay:1.75s"><tspan class="key">⚡</tspan><tspan class="val" dx="8">repos 8   ·   stars 0   ·   followers 8</tspan></text>
 <text x="448" y="490.0" class="sec row" style="animation-delay:1.82s">~/reach</text>
 <text x="448" y="507.5" class="key row" style="animation-delay:1.89s">Web</text>
 <text x="540" y="507.5" class="acc row" style="animation-delay:1.89s">marlonii.com</text>
@@ -109,5 +109,5 @@
 <text x="448" y="542.5" class="key row" style="animation-delay:2.03s">X</text>
 <text x="540" y="542.5" class="acc row" style="animation-delay:2.03s">x.com/iam_marlonii</text>
 <text x="30" y="596" class="row" style="animation-delay:2.20s"><tspan class="key">➜</tspan><tspan class="acc" dx="8">~</tspan><tspan class="val" dx="8">echo &quot;what&#x27;s behind the commit?&quot; &gt;&gt; blog.marlonii.com</tspan><tspan class="cur" dx="8">█</tspan></text>
-<text x="946" y="596" class="mut" text-anchor="end">last updated 17 Jul 2026, 14:57 ET</text>
+<text x="946" y="596" class="mut" text-anchor="end">last updated 17 Jul 2026, 15:11 ET</text>
 </svg>
