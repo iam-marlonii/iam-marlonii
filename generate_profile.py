@@ -61,17 +61,20 @@ INFO = [
     ("X",        "x.com/iam_marlonii", "accent"),
 ]
 
+# Brand cyan
+BRAND_CYAN = "#69d7f2"
+
 THEMES = {
     "dark": {
         "bg": "#0d1117", "panel": "#161b22", "border": "#30363d",
         "text": "#c9d1d9", "muted": "#8b949e", "key": "#3fb950",
-        "accent": "#58a6ff", "warn": "#d29922", "art": "#bc8cff",
+        "accent": "#58a6ff", "warn": "#d29922", "art": BRAND_CYAN,
         "prompt": "#3fb950",
     },
     "light": {
         "bg": "#ffffff", "panel": "#f6f8fa", "border": "#d0d7de",
         "text": "#1f2328", "muted": "#59636e", "key": "#1a7f37",
-        "accent": "#0969da", "warn": "#9a6700", "art": "#8250df",
+        "accent": "#0969da", "warn": "#9a6700", "art": "#1a9bb8",  # deeper cyan for contrast on white
         "prompt": "#1a7f37",
     },
 }

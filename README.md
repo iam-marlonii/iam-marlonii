@@ -13,7 +13,12 @@
   .github/workflows/profile.yml. Edit CONFIG / INFO in the script,
   never the .svg files directly.
 
-  To regenerate the ASCII portrait from a new photo:
+  To regenerate ASCII art from a logo (PNG/JPEG/WebP — no SVG needed):
+    pip install pillow numpy
+    python logo_to_ascii.py logos_www_marlonii-ColorLogo.png
+    python generate_profile.py
+
+  For a photo portrait instead:
     pip install pillow numpy rembg onnxruntime
     python photo_to_ascii.py path/to/photo.jpg
     python generate_profile.py
